@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+android {
+	compileSdkVersion 32
+	buildToolsVersion "29.0.2"
+
+	defaultConfig {
+		applicationId "com.dcm.speedloans"
+		minSdkVersion 19
+		targetSdkVersion 30
+		versionCode 1
+		versionName "1.0"
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+		multiDexEnabled true
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation 'androidx.appcompat:appcompat:1.3.0'
+	implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+	implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+	implementation 'androidx.browser:browser:1.3.0'
+	implementation 'androidx.cardview:cardview:1.0.0'
+
+	implementation 'com.google.android.material:material:1.6.0'
+	implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+	//Multidex
+	implementation 'com.android.support:multidex:1.0.3'
+	implementation 'androidx.multidex:multidex:2.0.1'
+
+	//Arch Lifecycle
+	def lifecycle_version = "2.2.0"
+	implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+	annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+//Retrofit Section
+	implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+	implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+	//implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+	implementation("com.squareup.okhttp3:okhttp:4.9.1")
+	implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+	implementation 'com.github.welcome2c:LottieProgressDialog:1.0.1'
+	//Country code picker
+	implementation 'com.github.joielechong:countrycodepicker:2.4.2'
+
+	//Firebase Files
+	implementation 'com.google.firebase:firebase-analytics:21.2.0'
+	implementation 'com.google.firebase:firebase-core:21.1.1'
+	implementation 'com.google.firebase:firebase-auth:21.1.0'
+// Import the BoM for the Firebase platform
+	implementation platform('com.google.firebase:firebase-bom:31.1.0')
+
+	implementation "androidx.activity:activity:1.6.1"
+	implementation "androidx.fragment:fragment:1.5.4"
+	implementation 'androidx.appcompat:appcompat:1.7.0-alpha01'
+	implementation 'androidx.appcompat:appcompat:1.5.1'
+
+	testImplementation 'junit:junit:4.12'
+	androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+}
+// Add to the bottom of the file
+apply plugin: 'com.google.gms.google-services'
